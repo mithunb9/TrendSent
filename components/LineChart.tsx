@@ -25,6 +25,18 @@ export function LineChart({ tickers }) {
   const [chartData, setChartData] = useState([]);
   const [labels, setLabels] = useState([]);
   const [datasets, setDatasets] = useState([]);
+  const [colors, setColors] = useState([
+    "#03045e",
+    "#023e8a",
+    "#0077b6",
+    "#0096c7",
+    "#00b4d8",
+    "#48cae4",
+    "#90e0ef",
+    "#ade8f4",
+    "#caf0f8",
+    "#03045e",
+  ]);
 
   const options = {
     responsive: true,

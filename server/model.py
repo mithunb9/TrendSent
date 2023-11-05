@@ -31,5 +31,8 @@ try:
                 for row in cursor.fetchall():
                     # print(row)
                     f.write(f"{row[0]},{row[1]},{row[2]}\n")
+
+    
+
 except MySQLdb.Error as e:
     print(f"Database error: {e}")

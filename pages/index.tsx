@@ -7,6 +7,7 @@ import Stack from "@mui/material/Stack";
 import Image from "next/image";
 import { LineChart } from "../components/LineChart";
 import CircularProgress from "./components";
+import { Header } from "@/components/Header";
 
 const inter = Inter({ subsets: ["latin-ext"] });
 
@@ -22,12 +23,12 @@ const companyTickers = [
 
 export default function Home() {
   // pull in the company tickers from the database
-  const [companyTickers, setCompanyTickers] = useState(
-    [{ name: "Apple", ticker: "AAPL" },
+  const [companyTickers, setCompanyTickers] = useState([
+    { name: "Apple", ticker: "AAPL" },
     { name: "Goldman Sachs", ticker: "GS" },
-    { name: "Microsoft", ticker: "MSFT" },]
-  );
-  const [selectedTicker, setSelectedTicker] = useState("WHITE");
+    { name: "Microsoft", ticker: "MSFT" },
+  ]);
+  const [selectedTicker, setSelectedTicker] = useState("MSFT");
   const [selectedCompetitorTickers, setSelectedCompetitorTickers] = useState([
     "MSFT",
   ]);
@@ -117,8 +118,18 @@ export default function Home() {
           <p className="py-2 px-8">Sentimental Analysis</p>
           <div className="flex justify py-8 ml-4">
             <CircularProgress progress={75} size={175} />
-            <LineChart tickers={selectedCompetitorTickers} />
           </div>
+          <LineChart tickers={selectedCompetitorTickers} />
+        </div>
+        <div className="flex justify-center items-center">
+          {/* <button
+            onClick={handleButtonClick}
+            className="bg-[#3AABD4] hover:bg-blue-700 items-center text-white font-bold py-2 px-4 rounded-2xl"
+          >
+            Calculate Forecast
+          </button> */}
+
+          <Header ticker={selectedTicker} />
         </div>
       </div>
     </div>
