@@ -4,6 +4,7 @@ import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import { useState } from "react";
 import Stack from "@mui/material/Stack";
+import Image from "next/image";
 
 const inter = Inter({ subsets: ["latin-ext"] });
 
@@ -43,7 +44,6 @@ export default function Home() {
 
   return (
     <>
-      {/* COMPLETED */}
       <div className="px-4 py-4">
         <img src="logo.svg" alt=""></img>
       </div>
@@ -54,11 +54,45 @@ export default function Home() {
           options={companyTickers}
           defaultValue={companyTickers[0]}
           sx={{ width: 300 }}
-          getOptionLabel={(option) => option.ticker} // Display the name in the input field
-          renderInput={(params) => (
-            <TextField {...params} label="Company Ticker" variant="outlined" />
+          getOptionLabel={(option) => option.ticker}
+          renderInput={(params) => {
+            const selectedOption = companyTickers.find(
+              (option) => option.ticker === selectedTicker
+            );
+            return (
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <TextField
+                  {...params}
+                  label="Company Ticker"
+                  variant="outlined"
+                  value={selectedOption ? selectedOption.ticker : ""}
+                  style={{ flex: 1 }} // Expand to fill the remaining space
+                />
+                <Image
+                  src={`/Logos/${selectedOption.ticker}.png`}
+                  alt={selectedOption.ticker}
+                  width="20"
+                  height="20"
+                  style={{ marginLeft: "8px" }} // Adjust the margin as needed
+                />
+              </div>
+            );
+          }}
+          getOptionSelected={(option, value) => option.ticker === value.ticker}
+          renderOption={(props, option) => (
+            <li {...props}>
+              <Image
+                src={`/Logos/${option.ticker}.png`}
+                alt={option.ticker}
+                width="20"
+                height="20"
+                style={{ marginRight: "8px" }} // Adjust the margin as needed
+              />
+              {option.ticker}
+            </li>
           )}
         />
+
         <Stack spacing={3} sx={{ width: 500 }}>
           <Autocomplete
             multiple
