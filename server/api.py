@@ -1,6 +1,6 @@
 import requests
 import json
-
+import news
 import os
 
 from dotenv import load_dotenv
@@ -61,3 +61,19 @@ def save_income_statement(data, ticker):
 
 def get_companies():
     return [{"name": "Apple", "ticker": "AAPL"}, {"name": "Goldman Sachs", "ticker": "GS"}, {"name": "Microsoft", "ticker": "MSFT"}, {"name": "Realty Income", "ticker": "O"}, {"name": "Coca-Cola", "ticker": "COKE"}, {"name": "JPMorgan Chase", "ticker": "JPM"}, {"name": "Wells Fargo", "ticker": "WFC"}, {"name": "Bank of America", "ticker": "BAC"}, {"name": "Citigroup", "ticker": "C"}, {"name": "Charles Schwab", "ticker": "SCHW"}, {"name": "Morgan Stanley", "ticker": "MS"}, {"name": "Netflix", "ticker": "NFLX"}, {"name": "NVIDIA", "ticker": "NVDA"}, {"name": "Amazon", "ticker": "AMZN"}, {"name": "McDonald's", "ticker": "MCD"}, {"name": "Intel", "ticker": "INTC"}, {"name": "Qualcomm", "ticker": "QCOM"}, {"name": "EOG Resources", "ticker": "EOG"}, {"name": "CBRE Group", "ticker": "CBRE"}]
+
+def get_sent_analysis(company):
+    sentiment = news.get_sentiment(company)
+    
+    # remove all neutral sentiments
+    sentiment = [s for s in sentiment if s != 0]
+
+    out = {}
+    out['sentiment'] = sentiment
+    out['average'] = sum(sentiment) / len(sentiment)
+    out['negative'] = len([s for s in sentiment if s == -1])
+    out['positive'] = len([s for s in sentiment if s == 1])
+    out['percent'] = out['positive'] / (out['positive'] + out['negative'])
+    out['company'] = company
+
+    return out
