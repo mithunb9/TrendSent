@@ -112,14 +112,14 @@ export default function Home() {
           />
         </Stack>
       </div>
-      <div className="px-24 py-8">
-        <div className="px-12 justify-center w-1/4 h-72 shadow-lg rounded-xl py-4">
-          <p className="py-2 px-8">Sentimental Analysis</p>
-          <div className="flex justify py-8 ml-4">
+      <div className="px-24 py-8 flex justify-items">
+        <div className="justify-center w-1/2 h-72 shadow-lg rounded-xl py-4">
+          <p className="py-2 px-16 w-72">Sentimental Analysis</p>
+          <div className="flex justify py-8 px-12">
             <CircularProgress progress={75} size={175} />
-            <LineChart tickers={selectedCompetitorTickers} />
           </div>
         </div>
+        <LineChart tickers={selectedCompetitorTickers} />
       </div>
     </div>
   );
