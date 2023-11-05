@@ -23,6 +23,9 @@ export default function Home() {
     { name: "Apple", ticker: "AAPL" },
   ]);
   const [selectedTicker, setSelectedTicker] = useState("AAPL");
+  const [selectedCompetitorTickers, setSelectedCompetitorTickers] = useState([
+    "MSFT",
+  ]);
 
   React.useEffect(() => {
     fetch("http://127.0.0.1:5000/companies")
@@ -71,6 +74,10 @@ export default function Home() {
                 placeholder="Add Company Ticker"
               />
             )}
+            onChange={(event, value) => {
+              console.log(value);
+              setSelectedCompetitorTickers(value.map((v) => v.ticker));
+            }}
           />
         </Stack>
       </div>
