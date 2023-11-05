@@ -28,10 +28,11 @@ export default function Home() {
     { name: "Goldman Sachs", ticker: "GS" },
     { name: "Microsoft", ticker: "MSFT" },
   ]);
-  const [selectedTicker, setSelectedTicker] = useState("MSFT");
+  const [selectedTicker, setSelectedTicker] = useState("GS");
   const [selectedCompetitorTickers, setSelectedCompetitorTickers] = useState([
-    "MSFT",
+    "GS",
   ]);
+  const [sentiment, setSentiment] = useState(67);
 
   React.useEffect(() => {
     fetch("http://127.0.0.1:5000/companies")
@@ -49,9 +50,17 @@ export default function Home() {
 
   return (
     <div className="">
-      <div className="flex items-center justify-center text-center">
-        <img src="logo.svg" alt=""></img>
+      <div>
+        <div>
+          <div className="flex items-center justify-center text-center">
+            <img src="logo.svg" alt=""></img>
+          </div>
+          <div className="mb-10">
+            <Header ticker={selectedTicker} />
+          </div>
+        </div>
       </div>
+
       <div className="flex justify-center gap-x-20">
         <Autocomplete
           disablePortal
@@ -60,10 +69,22 @@ export default function Home() {
           //defaultValue={companyTickers[0]}
           sx={{ width: 200 }}
           getOptionLabel={(option) => option.ticker}
-          renderInput={(params) => {
-            const selectedOption = companyTickers.find(
-              (option) => option.ticker === selectedTicker
+          onChange={(event, data) => {
+            setSelectedTicker([data.ticker]);
+
+            console.log(selectedTicker);
+            fetch("http://127.0.0.1:5000/sentiment/" + selectedTicker).then(
+              (response) => {
+                response.json().then((data) => {
+                  setSentiment(Math.round(data.percent * 100));
+                });
+              }
             );
+          }}
+          renderInput={(params) => {
+            const selectedOption = companyTickers.find((option) => {
+              option.ticker === selectedTicker;
+            });
             return (
               <div style={{ display: "flex", alignItems: "center" }}>
                 <TextField
@@ -90,7 +111,6 @@ export default function Home() {
             </li>
           )}
         />
-
         <Stack spacing={3} sx={{ width: 200 }}>
           <Autocomplete
             multiple
@@ -114,12 +134,11 @@ export default function Home() {
         </Stack>
       </div>
       <div className="px-24 py-8 flex justify-items">
-        <div className="justify-center w-1/2 h-72 shadow-lg rounded-xl py-4">
-          <p className="py-2 px-16 w-72">Sentimental Analysis</p>
-          <div className="flex justify py-8 px-12">
-            <CircularProgress progress={75} size={175} />
+        <div className="justify-center w-auto h-72 shadow-lg rounded-xl py-4">
+          <p className="py-2 px-16 w-72 text-center">Sentimental Analysis</p>
+          <div className="px-24 py-12">
+            <CircularProgress progress={sentiment} size={100} />
           </div>
-          <LineChart tickers={selectedCompetitorTickers} />
         </div>
         <div className="flex justify-center items-center">
           {/* <button
@@ -128,10 +147,10 @@ export default function Home() {
           >
             Calculate Forecast
           </button> */}
-
-          <Header ticker={selectedTicker} />
         </div>
-        <LineChart tickers={selectedCompetitorTickers} />
+        <div className="w-full">
+          <LineChart tickers={selectedCompetitorTickers} />
+        </div>
       </div>
     </div>
   );
