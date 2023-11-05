@@ -5,6 +5,7 @@ import Autocomplete from "@mui/material/Autocomplete";
 import { useState } from "react";
 import Stack from "@mui/material/Stack";
 import Image from "next/image";
+import { LineChart } from "../components/LineChart";
 
 const inter = Inter({ subsets: ["latin-ext"] });
 
@@ -122,6 +123,9 @@ export default function Home() {
         >
           Calculate Forecast
         </button>
+      </div>
+      <div>
+        <LineChart tickers={selectedCompetitorTickers} />
       </div>
     </>
   );

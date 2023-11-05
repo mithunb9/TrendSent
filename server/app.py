@@ -6,7 +6,7 @@ import json
 import model
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "*"}})
+CORS(app)
 
 @app.route('/')
 def hello_world():
@@ -21,47 +21,46 @@ def sentiment(company):
 def companies():
     return api.get_companies()
 
+def read_csv_data(company):
+    data = []
+    try:
+        with open(f'data/{company}.csv') as f:
+            for line in f.read().splitlines():
+                parts = line.split(',')
+                if len(parts) == 3:
+                    data.append({
+                        'date': parts[0].split()[0],
+                        'value': float(parts[2])
+                    })
+    except FileNotFoundError:
+        # Handle file not found error
+        pass
+    return data
+
+def read_dcf_data(company):
+    data = []
+    try:
+        with open(f'data/{company}_dcf.json') as f:
+            dcf = json.load(f)
+            for entry in dcf:
+                data.append({
+                    'date': entry['date'],
+                    'value': entry['dcf']
+                })
+    except (FileNotFoundError, json.JSONDecodeError):
+        # Handle file not found or JSON parsing error
+        pass
+    return data
+
 @app.route('/predict/<company>')
 def predict(company):
-    out = []
+    csv_data = read_csv_data(company)
+    dcf_data = read_dcf_data(company)
 
-    with open(f'data/{company}.csv') as f:
-        data = f.read().splitlines()
-        
-        date_data = [d.split(',')[0] for d in data]
+    # Combine and sort data by date
+    combined_data = sorted(csv_data + dcf_data, key=lambda x: x['date'])
 
-        date_data = [d.split('-')[0] + '-' + d.split('-')[1] for d in date_data]
-        
-        data.pop(1)
-
-        for i in range(len(data)):
-            data[i] = data[i].split(',')
-            data[i][0] = date_data[i]
-
-        data = data[1:]
-
-        for d in data:
-            out.append({
-                'date': d[0],
-                'value': d[2],
-            })
-    
-    combined = []   
-    with open(f'data/{company}_dcf.json') as f:
-        dcf = json.load(f)
-
-        for d in dcf:
-            combined.append({
-                'date': d['date'],
-                'value': d['dcf'],
-            })
-
-        combined.reverse()
-
-    combined.extend(out)
-
-    return jsonify(combined)
-
+    return jsonify(combined_data)
 if __name__ == '__main__':
     app.run(debug=True)
 
