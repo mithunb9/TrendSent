@@ -8,6 +8,7 @@ import Image from "next/image";
 import { LineChart } from "../components/LineChart";
 import CircularProgress from "./components";
 import { Header } from "@/components/Header";
+import { JPM, CBRE } from "./compsend";
 
 const inter = Inter({ subsets: ["latin-ext"] });
 
@@ -153,6 +154,9 @@ export default function Home() {
         <div className="w-full">
           <LineChart tickers={selectedCompetitorTickers} />
         </div>
+      </div>
+      <div>
+        <CBRE />
       </div>
     </div>
   );

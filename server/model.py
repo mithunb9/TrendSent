@@ -31,11 +31,12 @@ try:
                 for row in cursor.fetchall():
                     # print(row)
                     f.write(f"{row[0]},{row[1]},{row[2]}\n")
+
     with db_connection.cursor() as cursor:
         for company in api.get_companies():
             company_ticker = company['ticker'].upper()
 
-            cursor.execute(f"SELECT  FROM {company_ticker}analysis")
+            cursor.execute(f"SELECT * FROM {company_ticker}analysis")
 
             with open(DATA_DIR + f"{company_ticker}_analysis.csv", "w") as f:
                 for row in cursor.fetchall():
