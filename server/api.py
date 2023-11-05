@@ -58,3 +58,6 @@ def save_income_statement(data, ticker):
     if data:
         with open(DATA_DIR + f"{ticker}_income.json", "w") as f:
             json.dump(data, f, indent=4)
+
+def get_companies():
+    return [{"name": "Apple", "ticker": "AAPL"}, {"name": "Goldman Sachs", "ticker": "GS"}, {"name": "Microsoft", "ticker": "MSFT"}, {"name": "Realty Income", "ticker": "O"}, {"name": "Coca-Cola", "ticker": "COKE"}, {"name": "JPMorgan Chase", "ticker": "JPM"}, {"name": "Wells Fargo", "ticker": "WFC"}, {"name": "Bank of America", "ticker": "BAC"}, {"name": "Citigroup", "ticker": "C"}, {"name": "Charles Schwab", "ticker": "SCHW"}, {"name": "Morgan Stanley", "ticker": "MS"}, {"name": "Netflix", "ticker": "NFLX"}, {"name": "NVIDIA", "ticker": "NVDA"}, {"name": "Amazon", "ticker": "AMZN"}, {"name": "McDonald's", "ticker": "MCD"}, {"name": "Intel", "ticker": "INTC"}, {"name": "Qualcomm", "ticker": "QCOM"}, {"name": "EOG Resources", "ticker": "EOG"}, {"name": "CBRE Group", "ticker": "CBRE"}]

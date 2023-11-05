@@ -68,17 +68,71 @@ def calculate_dcf(data):
 
     dfc = equity_value / was
 
-    print(dfc)
+    return { "date": data["date"], "dcf": dfc }
 
 # print every dcf based on the last 5 years
 def get_dcf(symbol):
+    out = []
     data = get_dcf_data(symbol, "annual")
 
-    for i in range(5):
-        calculate_dcf(data[i])
+    for i in range(15):
+        out.append(calculate_dcf(data[i]))
 
-get_dcf("AAPL")
+    return out
 
+# print("AAPL")
+# ppj(get_dcf("AAPL"))
 
+# print("GS")
+# ppj(get_dcf("GS"))
 
+# print("MSFT")
+# ppj(get_dcf("MSFT"))
 
+# print("O")
+# ppj(get_dcf("O"))
+
+# print("COKE")
+# ppj(get_dcf("COKE"))
+
+# print("JPM")
+# print(get_dcf("JPM"))
+
+# print("WFC")
+# print(get_dcf("WFC"))
+
+# print("BAC")
+# print(get_dcf("BAC"))
+
+# print("C")
+# print(get_dcf("C"))
+
+# print("SCHW")
+# print(get_dcf("SCHW"))
+
+# print("MS")
+# print(get_dcf("MS"))
+
+# print("NFLX")
+# print(get_dcf("NFLX"))
+
+# print("NVDA")
+# print(get_dcf("NVDA"))
+
+# print("AMZN")
+# print(get_dcf("AMZN"))
+
+# print("MCD")
+# print(get_dcf("MCD"))
+
+# print("QCOM")
+# print(get_dcf("QCOM"))
+
+# print("INTC")
+# print(get_dcf("INTC"))
+
+# print("EOG")
+# print(get_dcf("EOG"))
+
+# print("CBRE")
+# print(get_dcf("CBRE"))

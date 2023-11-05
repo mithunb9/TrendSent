@@ -1,5 +1,6 @@
 from flask import Flask
 import news
+import api
 
 app = Flask(__name__)
 
@@ -20,5 +21,15 @@ def sentiment(company):
 
     return out
 
+@app.route('/companies')
+def companies():
+    return api.get_companies()
+
+@app.route('/update')
+def update():
+    model.update()
+    return { "status": "success" }
+
 if __name__ == '__main__':
     app.run(debug=True)
+
