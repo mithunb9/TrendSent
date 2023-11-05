@@ -1,7 +1,8 @@
-from flask import Flask
+from flask import Flask, jsonify
 from flask_cors import CORS
 import news
 import api
+import model
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
@@ -34,7 +35,15 @@ def companies():
 
 @app.route('/predict/<company>')
 def predict(company):
-    return model.predict(company)
+    with open(f'data/{company}.csv') as f:
+        data = f.read().splitlines()
+
+        # parse date (remove time)
+        data = [d.split(',')[0] for d in data]
+
+        print(data)
+
+    return jsonify(data)
 
 if __name__ == '__main__':
     app.run(debug=True)
