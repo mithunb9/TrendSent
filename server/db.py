@@ -53,9 +53,11 @@ try:
             with open(f"data/{company['ticker']}_dcf.json", "w") as f:
                 json.dump(save_data, f, indent=4)
 
+        cursor.execute("DROP TABLE IF EXISTS sentiment")
+
         create_table_sql = (
             "CREATE TABLE IF NOT EXISTS sentiment "
-            "(id INT AUTO_INCREMENT PRIMARY KEY, comp VARCHAR(255), sentiment INT)"
+            "(id INT AUTO_INCREMENT PRIMARY KEY, comp VARCHAR(255), sentiment VARCHAR(255))"
         )
 
         cursor.execute(create_table_sql)

@@ -5,6 +5,7 @@ import Autocomplete from "@mui/material/Autocomplete";
 import { useState } from "react";
 import Stack from "@mui/material/Stack";
 import Image from "next/image";
+import { LineChart } from "../components/LineChart";
 import CircularProgress from "./components";
 
 const inter = Inter({ subsets: ["latin-ext"] });
