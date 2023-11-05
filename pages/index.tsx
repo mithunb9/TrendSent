@@ -117,6 +117,7 @@ export default function Home() {
           <p className="py-2 px-8">Sentimental Analysis</p>
           <div className="flex justify py-8 ml-4">
             <CircularProgress progress={75} size={175} />
+            <LineChart tickers={selectedCompetitorTickers} />
           </div>
         </div>
       </div>
