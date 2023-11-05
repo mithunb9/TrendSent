@@ -25,10 +25,9 @@ def sentiment(company):
 def companies():
     return api.get_companies()
 
-@app.route('/update')
-def update():
-    model.update()
-    return { "status": "success" }
+@def.route('/predict/<company>')
+def predict(company):
+    return model.predict(company)
 
 if __name__ == '__main__':
     app.run(debug=True)
