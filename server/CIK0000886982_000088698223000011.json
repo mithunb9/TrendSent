@@ -1,105 +1,165 @@
 [
-  ["Assets"],
-  ["Cash and cash equivalents", "$ 239,879", "$ 241,825"],
-  ["Collateralized agreements:"],
-  [
-    "Securities purchased under agreements to resell (includes $190,446 and $225,117 at fair value)",
-    "190,695",
-    "225,117"
-  ],
-  [
-    "Securities borrowed (includes $36,792 and $38,578 at fair value)",
-    "196,925",
-    "189,041"
-  ],
-  [
-    "Customer and other receivables (includes $23 and $25 at fair value)",
-    "140,866",
-    "135,448"
-  ],
-  [
-    "Trading assets (at fair value and includes $97,406 and $40,143 pledged as collateral)",
-    "448,060",
-    "301,245"
-  ],
-  [
-    "Investments (includes $76,307 and $78,201 at fair value, and $8,463 and $9,818 pledged as collateral)",
-    "145,530",
-    "130,629"
-  ],
-  [
-    "Loans (net of allowance of $4,895 and $5,543, and includes $6,448 and $7,655 at fair value)",
-    "178,257",
-    "179,286"
-  ],
-  ["Other assets (includes $324 and $145 at fair value)", "36,941", "39,208"],
-  ["Total assets", "1,577,153", "1,441,799"],
-  ["Liabilities and shareholders\u2019 equity"],
-  [
-    "Deposits (includes $28,557 and $15,746 at fair value)",
-    "402,962",
-    "386,665"
-  ],
-  ["Collateralized financings:"],
-  [
-    "Securities sold under agreements to repurchase (at fair value)",
-    "225,679",
-    "110,349"
-  ],
-  [
-    "Securities loaned (includes $8,178 and $4,372 at fair value)",
-    "54,926",
-    "30,727"
-  ],
-  [
-    "Other secured financings (includes $14,114 and $12,756 at fair value)",
-    "14,728",
-    "13,946"
-  ],
-  ["Customer and other payables", "252,342", "262,045"],
-  ["Trading liabilities (at fair value)", "195,123", "191,324"],
-  [
-    "Unsecured short-term borrowings (includes $42,351 and $39,731 at fair value)",
-    "70,009",
-    "60,961"
-  ],
-  [
-    "Unsecured long-term borrowings (includes $73,916 and $73,147 at fair value)",
-    "224,024",
-    "247,138"
-  ],
-  [
-    "Other liabilities (includes $614 and $159 at fair value)",
-    "20,083",
-    "21,455"
-  ],
-  ["Total liabilities", "1,459,876", "1,324,610"],
-  ["Commitments, contingencies and guarantees"],
-  ["Shareholders\u2019 equity"],
-  [
-    "Preferred stock; aggregate liquidation preference of $11,203 and $10,703",
-    "11,203",
-    "10,703"
-  ],
-  [
-    "Common stock; 922,889,392 and 917,815,030 shares issued, and 326,604,718 and 334,918,639 shares outstanding",
-    "9",
-    "9"
-  ],
-  ["Share-based awards", "5,117", "5,696"],
-  ["Nonvoting common stock; no shares issued and outstanding", "0", "0"],
-  ["Additional paid-in capital", "60,233", "59,050"],
-  ["Retained earnings", "142,743", "139,372"],
-  ["Accumulated other comprehensive loss", "(2,599)", "(3,010)"],
-  [
-    "Stock held in treasury, at cost; 596,284,676 and 582,896,393 shares",
-    "(99,429)",
-    "(94,631)"
-  ],
-  ["Total shareholders\u2019 equity", "117,277", "117,189"],
-  [
-    "Total liabilities and shareholders\u2019 equity",
-    "$ 1,577,153",
-    "$ 1,441,799"
-  ]
+    [
+        "Assets"
+    ],
+    [
+        "Cash and cash equivalents",
+        "$ 239,879",
+        "$ 241,825"
+    ],
+    [
+        "Collateralized agreements:"
+    ],
+    [
+        "Securities purchased under agreements to resell (includes $190,446 and $225,117 at fair value)",
+        "190,695",
+        "225,117"
+    ],
+    [
+        "Securities borrowed (includes $36,792 and $38,578 at fair value)",
+        "196,925",
+        "189,041"
+    ],
+    [
+        "Customer and other receivables (includes $23 and $25 at fair value)",
+        "140,866",
+        "135,448"
+    ],
+    [
+        "Trading assets (at fair value and includes $97,406 and $40,143 pledged as collateral)",
+        "448,060",
+        "301,245"
+    ],
+    [
+        "Investments (includes $76,307 and $78,201 at fair value, and $8,463 and $9,818 pledged as collateral)",
+        "145,530",
+        "130,629"
+    ],
+    [
+        "Loans (net of allowance of $4,895 and $5,543, and includes $6,448 and $7,655 at fair value)",
+        "178,257",
+        "179,286"
+    ],
+    [
+        "Other assets (includes $324 and $145 at fair value)",
+        "36,941",
+        "39,208"
+    ],
+    [
+        "Total assets",
+        "1,577,153",
+        "1,441,799"
+    ],
+    [
+        "Liabilities and shareholders\u2019 equity"
+    ],
+    [
+        "Deposits (includes $28,557 and $15,746 at fair value)",
+        "402,962",
+        "386,665"
+    ],
+    [
+        "Collateralized financings:"
+    ],
+    [
+        "Securities sold under agreements to repurchase (at fair value)",
+        "225,679",
+        "110,349"
+    ],
+    [
+        "Securities loaned (includes $8,178 and $4,372 at fair value)",
+        "54,926",
+        "30,727"
+    ],
+    [
+        "Other secured financings (includes $14,114 and $12,756 at fair value)",
+        "14,728",
+        "13,946"
+    ],
+    [
+        "Customer and other payables",
+        "252,342",
+        "262,045"
+    ],
+    [
+        "Trading liabilities (at fair value)",
+        "195,123",
+        "191,324"
+    ],
+    [
+        "Unsecured short-term borrowings (includes $42,351 and $39,731 at fair value)",
+        "70,009",
+        "60,961"
+    ],
+    [
+        "Unsecured long-term borrowings (includes $73,916 and $73,147 at fair value)",
+        "224,024",
+        "247,138"
+    ],
+    [
+        "Other liabilities (includes $614 and $159 at fair value)",
+        "20,083",
+        "21,455"
+    ],
+    [
+        "Total liabilities",
+        "1,459,876",
+        "1,324,610"
+    ],
+    [
+        "Commitments, contingencies and guarantees"
+    ],
+    [
+        "Shareholders\u2019 equity"
+    ],
+    [
+        "Preferred stock; aggregate liquidation preference of $11,203 and $10,703",
+        "11,203",
+        "10,703"
+    ],
+    [
+        "Common stock; 922,889,392 and 917,815,030 shares issued, and 326,604,718 and 334,918,639 shares outstanding",
+        "9",
+        "9"
+    ],
+    [
+        "Share-based awards",
+        "5,117",
+        "5,696"
+    ],
+    [
+        "Nonvoting common stock; no shares issued and outstanding",
+        "0",
+        "0"
+    ],
+    [
+        "Additional paid-in capital",
+        "60,233",
+        "59,050"
+    ],
+    [
+        "Retained earnings",
+        "142,743",
+        "139,372"
+    ],
+    [
+        "Accumulated other comprehensive loss",
+        "(2,599)",
+        "(3,010)"
+    ],
+    [
+        "Stock held in treasury, at cost; 596,284,676 and 582,896,393 shares",
+        "(99,429)",
+        "(94,631)"
+    ],
+    [
+        "Total shareholders\u2019 equity",
+        "117,277",
+        "117,189"
+    ],
+    [
+        "Total liabilities and shareholders\u2019 equity",
+        "$ 1,577,153",
+        "$ 1,441,799"
+    ]
 ]
