@@ -26,7 +26,7 @@ export default function Home() {
     { name: "Goldman Sachs", ticker: "GS" },
     { name: "Microsoft", ticker: "MSFT" },]
   );
-  const [selectedTicker, setSelectedTicker] = useState("AAPL");
+  const [selectedTicker, setSelectedTicker] = useState("WHITE");
   const [selectedCompetitorTickers, setSelectedCompetitorTickers] = useState([
     "MSFT",
   ]);
@@ -46,17 +46,17 @@ export default function Home() {
   };
 
   return (
-    <>
-      <div className="px-4 py-4">
+    <div className="">
+      <div className="flex items-center justify-center text-center">
         <img src="logo.svg" alt=""></img>
       </div>
-      <div className="flex justify-center gap-x-20 py-16">
+      <div className="flex justify-center gap-x-20">
         <Autocomplete
           disablePortal
           id="combo-box-demo"
           options={companyTickers}
-          defaultValue={companyTickers[0]}
-          sx={{ width: 300 }}
+          //defaultValue={companyTickers[0]}
+          sx={{ width: 200 }}
           getOptionLabel={(option) => option.ticker}
           renderInput={(params) => {
             const selectedOption = companyTickers.find(
@@ -70,13 +70,6 @@ export default function Home() {
                   variant="outlined"
                   value={selectedOption ? selectedOption.ticker : ""}
                   style={{ flex: 1 }} // Expand to fill the remaining space
-                />
-                <Image
-                  src={`/Logos/${selectedOption.ticker}.png`}
-                  alt={selectedOption.ticker}
-                  width="20"
-                  height="20"
-                  style={{ marginLeft: "8px" }} // Adjust the margin as needed
                 />
               </div>
             );
@@ -96,7 +89,7 @@ export default function Home() {
           )}
         />
 
-        <Stack spacing={3} sx={{ width: 500 }}>
+        <Stack spacing={3} sx={{ width: 200 }}>
           <Autocomplete
             multiple
             id="tags-standard"
@@ -118,22 +111,14 @@ export default function Home() {
           />
         </Stack>
       </div>
-      <div className="flex justify-center items-center">
-        <button
-          onClick={handleButtonClick}
-          className="bg-[#3AABD4] hover:bg-blue-700 items-center text-white font-bold py-2 px-4 rounded-2xl"
-        >
-          Calculate Forecast
-        </button>
-      </div>
-      <div className="px-64 py-16">
-        <div className="px-12 justify-center w-1/3 h-72 shadow-lg rounded-xl py-4">
-          <p>Sentimental Analysis Score - </p>
-          <div className="px-8 py-8">
-            <CircularProgress progress={75} size={150} />
+      <div className="px-24 py-8">
+        <div className="px-12 justify-center w-1/4 h-72 shadow-lg rounded-xl py-4">
+          <p className="py-2 px-8">Sentimental Analysis</p>
+          <div className="flex justify py-8 ml-4">
+            <CircularProgress progress={75} size={175} />
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
