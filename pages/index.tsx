@@ -55,13 +55,13 @@ export default function Home() {
           <div className="flex items-center justify-center text-center">
             <img src="logo.svg" alt=""></img>
           </div>
-          <div className="mb-10">
+          <div className="mb-10 m-auto items-center flex justify-center">
             <Header ticker={selectedTicker} />
           </div>
         </div>
       </div>
 
-      <div className="flex justify-center gap-x-20">
+      <div className="flex justify-center gap-x-20 mt-10">
         <Autocomplete
           disablePortal
           id="combo-box-demo"
@@ -134,8 +134,10 @@ export default function Home() {
         </Stack>
       </div>
       <div className="px-24 py-8 flex justify-items">
-        <div className="justify-center w-auto h-72 shadow-lg rounded-xl py-4">
-          <p className="py-2 px-16 w-72 text-center">Sentimental Analysis</p>
+        <div className="mt-20 justify-center w-auto h-72 rounded-xl py-4">
+          <p className="py-2 px-16 w-72 text-center mt-4">
+            Sentimental Analysis
+          </p>
           <div className="px-24 py-12">
             <CircularProgress progress={sentiment} size={100} />
           </div>
