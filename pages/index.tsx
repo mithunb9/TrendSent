@@ -6,6 +6,7 @@ import { useState } from "react";
 import Stack from "@mui/material/Stack";
 import Image from "next/image";
 import { LineChart } from "../components/LineChart";
+import CircularProgress from "./components";
 
 const inter = Inter({ subsets: ["latin-ext"] });
 
@@ -13,17 +14,19 @@ const inputStyle = {
   color: "white",
 };
 
-// const companyTickers = [
-//   { name: "Apple", ticker: "AAPL" },
-//   { name: "Goldman Sachs", ticker: "GS" },
-//   { name: "Microsoft", ticker: "MSFT" },
-// ];
+const companyTickers = [
+  { name: "Apple", ticker: "AAPL" },
+  { name: "Goldman Sachs", ticker: "GS" },
+  { name: "Microsoft", ticker: "MSFT" },
+];
 
 export default function Home() {
   // pull in the company tickers from the database
-  const [companyTickers, setCompanyTickers] = useState([
-    { name: "Apple", ticker: "AAPL" },
-  ]);
+  const [companyTickers, setCompanyTickers] = useState(
+    [{ name: "Apple", ticker: "AAPL" },
+    { name: "Goldman Sachs", ticker: "GS" },
+    { name: "Microsoft", ticker: "MSFT" },]
+  );
   const [selectedTicker, setSelectedTicker] = useState("AAPL");
   const [selectedCompetitorTickers, setSelectedCompetitorTickers] = useState([
     "MSFT",
@@ -123,9 +126,6 @@ export default function Home() {
         >
           Calculate Forecast
         </button>
-      </div>
-      <div>
-        <LineChart tickers={selectedCompetitorTickers} />
       </div>
     </>
   );
